@@ -22,7 +22,8 @@ const userSchema = new mongoose.Schema({
         unique : true ,
         index : true,
         lowercase : true
-    },email : {
+    },
+    email : {
         type : String ,
         required : true,
         trim : true,
@@ -36,7 +37,7 @@ const userSchema = new mongoose.Schema({
     role :{
         type : String ,
         enum : ['etudiant','user','admin'],
-        default : 'admin'
+        default : 'user'
 
     },
     contactNumber :{
