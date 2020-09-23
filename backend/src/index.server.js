@@ -16,13 +16,15 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // routes 
-const userRoutes = require('./routes/auth')
+const authRoutes = require('./routes/auth')
+const adminRoutes = require('./routes/admin/auth')
 
 
 
 
+app.use('/api',authRoutes)
+app.use('/api',adminRoutes)
 
-app.use('/api',userRoutes)
 app.listen(process.env.PORT,()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
 
