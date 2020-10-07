@@ -11,7 +11,8 @@ exports.signup = (req,res) => {
             firstname ,
             lastname ,
             email ,
-            password  
+            password,
+            contactNumber  
         } = req.body;
         const _user = new User({
             firstname ,
@@ -19,7 +20,8 @@ exports.signup = (req,res) => {
             email ,
             password ,
             username : Math.random().toString() ,
-            role : 'admin'
+            role : 'admin',
+            contactNumber
 
         });
         _user.save((error,data) => {
@@ -67,12 +69,4 @@ exports.signin = (req,res) => {
             return res.status(400).json({ message : 'Something went wrong' })
         }
     })
-}
-exports.requireSignIn = (req, res , next ) => {
-
-    const token = req.headers.authorization.split(" ")[1];
-    const user = jwt.verify(token , process.env.JWT_SECRET)
-    req.user = user;
-    next();
-    //jwt.decode();
 }
