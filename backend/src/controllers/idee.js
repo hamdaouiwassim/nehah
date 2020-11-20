@@ -20,3 +20,11 @@ exports.CreateIdee = (req,res) => {
         
 
 }
+exports.GetAllIdees = ( req , res ) => {
+            Idee.find({}).exec(( error , idees ) => {
+                if(error) return res.status(400).json({ error })
+                if (idees){
+                    res.status(200).json({ idees })
+                }
+            })
+}

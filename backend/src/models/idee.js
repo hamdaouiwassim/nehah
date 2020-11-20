@@ -15,10 +15,8 @@ const ideeSchema = new mongoose.Schema({
         min : 3 ,
         max : 20
     },
-    iduser : {
-        type : String ,
-        required : true,
-     
+    iduser : { type : String ,
+        required : true
     }
 
   
