@@ -4,8 +4,8 @@ const Idee = require('../models/idee')
 const { requireSignIn, adminMiddleware } = require('../common-middleware');
 const { CreateIdee , GetAllIdees } = require('../controllers/idee')
 
-router.post('/idee/create' , requireSignIn  , CreateIdee)
-router.get('/idee/getall' , requireSignIn , GetAllIdees)
+router.post('/idee/create'  , CreateIdee)
+router.get('/idee/getall' , GetAllIdees)
 
 
 

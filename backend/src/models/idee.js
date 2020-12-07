@@ -5,15 +5,13 @@ const ideeSchema = new mongoose.Schema({
         type : String ,
         required : true,
         trim : true,
-        min : 3 ,
-        max : 20
+        min : 3 
     },
     description :{
         type : String ,
         required : true,
         trim : true,
-        min : 3 ,
-        max : 20
+        min : 3 
     },
     iduser : { type : String ,
         required : true
