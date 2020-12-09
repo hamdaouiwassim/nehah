@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
-const ideeSchema = new mongoose.Schema({
+
+const projetSchema = new mongoose.Schema({
     name : {
         type : String ,
         required : true,
@@ -18,12 +18,22 @@ const ideeSchema = new mongoose.Schema({
         required : true
      },
 
-    createdBy : {  type: mongoose.Schema.Types.ObjectId, ref: 'User' ,
+    createdBy : { type: mongoose.Schema.Types.ObjectId, ref: 'User' ,
         required : true
-    }
+    },
+
+    domaine : { 
+        type : String ,
+        required : true },
+    depot : { 
+        type : Date ,
+        required : true },
+    note : { 
+        type : Number ,
+        required : true }
 
   
 } , { timestamps : true })
 
 
-module.exports = mongoose.model('Idee' , ideeSchema );
+module.exports = mongoose.model('Projet' , projetSchema );

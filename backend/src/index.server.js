@@ -21,14 +21,21 @@ app.use(express.json());
 const authRoutes = require('./routes/auth')
 const adminRoutes = require('./routes/admin/auth')
 const ideeRoutes = require('./routes/idee')
-const initialDataRoutes = require('./routes/admin/initialData')
+const projetsRoutes = require('./routes/projet')
+const utilisateursRoutes = require('./routes/utilisateur')
+const commentairesRoutes = require('./routes/commentaire')
+
+
 
 
 
 app.use('/api',authRoutes)
 app.use('/api',adminRoutes)
 app.use('/api',ideeRoutes)
-app.use('/api',initialDataRoutes)
+//app.use('/api',initialDataRoutes)
+app.use('/api',projetsRoutes)
+app.use('/api',utilisateursRoutes)
+app.use('/api',commentairesRoutes)
 
 app.listen(process.env.PORT,()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
