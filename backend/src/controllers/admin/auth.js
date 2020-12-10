@@ -12,6 +12,7 @@ exports.signup = (req,res) => {
             lastname ,
             email ,
             password,
+            role,
             contactNumber  
         } = req.body;
         const _user = new User({
@@ -20,7 +21,7 @@ exports.signup = (req,res) => {
             email ,
             password ,
             username : Math.random().toString() ,
-            role : 'admin',
+            role ,
             contactNumber
 
         });

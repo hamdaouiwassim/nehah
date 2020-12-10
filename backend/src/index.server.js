@@ -24,6 +24,7 @@ const ideeRoutes = require('./routes/idee')
 const projetsRoutes = require('./routes/projet')
 const utilisateursRoutes = require('./routes/utilisateur')
 const commentairesRoutes = require('./routes/commentaire')
+const presentationsRoutes = require('./routes/presentation')
 
 
 
@@ -36,7 +37,7 @@ app.use('/api',ideeRoutes)
 app.use('/api',projetsRoutes)
 app.use('/api',utilisateursRoutes)
 app.use('/api',commentairesRoutes)
-
+app.use('/api',presentationsRoutes)
 app.listen(process.env.PORT,()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
 

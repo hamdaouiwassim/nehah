@@ -32,3 +32,13 @@ exports.GetAllProjets = (req,res) => {
                 }
             })
 }
+
+exports.GetProjetById = (req,res) => {
+    projetId = req.params.projetId;
+    Projet.find({ _id : projetId }).populate('createdBy').exec(( error , projet ) => {
+        if(error) return res.status(400).json({ error })
+        if (projet){
+            res.status(200).json({ projet })
+        }
+    })
+}

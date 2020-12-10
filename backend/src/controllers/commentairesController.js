@@ -41,6 +41,17 @@ exports.GetAllCommentairesByIdee = ( req , res ) => {
     })
 }
 
+exports.GetAllCommentairesByProjet = ( req , res ) => {
+    projetId = req.params.projetId;
+    //console.log(ideeId)
+    Commentaire.find({ attachment : projetId , type : 'projet' }).populate('createdBy').exec(( error , commentaires ) => {
+        if(error) return res.status(400).json({ error })
+        if (commentaires){
+            res.status(200).json({ commentaires })
+        }
+    })
+}
+
 
 exports.DeleteCommentaire = ( req,res) => {
     //res.status(200).json({ message : 'Commentaire supprimer avec success' })
