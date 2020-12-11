@@ -14,7 +14,7 @@ exports.CreateCommentaire = (req,res) => {
         commentaire.save((error,createdcommentaire)=>{
                     if(error) return res.status(400).json({ error })
                     if(createdcommentaire){
-                        return res.status(201).json({ createdcommentaire })
+                        return res.status(200).json({ createdcommentaire })
                     }
         })
 

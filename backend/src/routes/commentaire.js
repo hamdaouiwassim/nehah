@@ -10,6 +10,7 @@ router.post('/commentaire/create', CreateCommentaire )
 router.get('/commentaire/delete/:commentId' , DeleteCommentaire )
 router.get('/commentaire/:ideeId' , GetAllCommentairesByIdee )
 router.get('/projet/commentaires/:projetId' , GetAllCommentairesByProjet )
+router.get('/idee/commentaires/:ideeId' , GetAllCommentairesByIdee )
 
 //router.get('/commentaire/delete/:commentId' ,  )
 

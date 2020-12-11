@@ -21,6 +21,17 @@ exports.CreateIdee = (req,res) => {
         
 
 }
+
+
+exports.getIdeaById = ( req , res ) => {
+    ideeId = req.params.ideeId;
+    Idee.findOne({_id: ideeId}).populate('createdBy').exec(( error , idee ) => {
+        if(error) return res.status(400).json({ error })
+        if (idee){
+            res.status(200).json({ idee })
+        }
+    })
+}
 exports.GetAllIdees = ( req , res ) => {
             Idee.find({}).populate('createdBy').exec(( error , idees ) => {
                 if(error) return res.status(400).json({ error })
