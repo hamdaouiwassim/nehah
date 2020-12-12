@@ -60,3 +60,15 @@ exports.DeleteIdee = ( req,res) => {
         }
     })
 }
+
+
+exports.getIdeaByUser = (req,res) => {
+    userId = req.params.userId;
+    Idee.find({ createdBy : userId  }).populate('createdBy').exec(( error , idees ) => {
+        if(error) return res.status(400).json({ error })
+        if (idees){
+            res.status(200).json({ idees })
+        }
+    })
+
+}
