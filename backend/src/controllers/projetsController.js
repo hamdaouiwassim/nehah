@@ -45,10 +45,10 @@ exports.GetProjetById = (req,res) => {
 
 exports.getProjetByUser = (req,res) => {
     userId = req.params.userId;
-    Projet.find({ createdBy : userId }).populate('createdBy').exec(( error , projet ) => {
+    Projet.find({ createdBy : userId }).populate('createdBy').exec(( error , projets ) => {
         if(error) return res.status(400).json({ error })
-        if (projet){
-            res.status(200).json({ projet })
+        if (projets){
+            res.status(200).json({ projets })
         }
     })
 }
