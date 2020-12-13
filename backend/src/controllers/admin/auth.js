@@ -8,6 +8,7 @@ exports.signup = (req,res) => {
             message : 'User already registred'
         })
         const {
+            username ,
             firstname ,
             lastname ,
             email ,
@@ -16,11 +17,11 @@ exports.signup = (req,res) => {
             contactNumber  
         } = req.body;
         const _user = new User({
+            username ,
             firstname ,
             lastname ,
             email ,
             password ,
-            username : Math.random().toString() ,
             role ,
             contactNumber
 
@@ -28,7 +29,7 @@ exports.signup = (req,res) => {
         _user.save((error,data) => {
             if(error){
                 return res.status(400).json({
-                    message : "Something went wrong"
+                    error : "Something went wrong"
                 });
 
             }
